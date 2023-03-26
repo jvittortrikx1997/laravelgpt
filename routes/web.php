@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::post('/ingredientes', [HomeController::class, 'ingredientes'])->name('ingredientes');
