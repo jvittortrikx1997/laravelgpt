@@ -8,13 +8,22 @@ body>header h1 {
     margin: 1rem auto;
 }
 
-article>form{
+header>nav a, header>nav a:visited {
+    color: azure;
+}
+
+#receita>article>form{
     flex: 1;
     display: flex;
     gap:20px;
 }
 
-article input{
+#receita>article input{
     flex: 1;
 }
+
+#copyForm>p>input{
+    width: 100%;
+}
+
 

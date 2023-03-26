@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/ingredientes', [HomeController::class, 'receita']);
 Route::post('/ingredientes', [HomeController::class, 'ingredientes'])->name('ingredientes');
+Route::get('/copy', [HomeController::class, 'copy']);
+Route::post('/copy', [HomeController::class, 'copySearch'])->name('copySearch');

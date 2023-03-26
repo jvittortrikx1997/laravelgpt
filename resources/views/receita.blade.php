@@ -11,8 +11,14 @@
 <body>
     <header>
         <h1>Laravel - GPT 🤖</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/ingredientes">Gerador de Receitas</a>
+            <a href="/copy">Gerador de Copy</a>
+        </nav>
+        </nav>
     </header>
-    <main>
+    <main id="receita">
         <h2>Gerador de Receitas</h2>
         <p>Crie receitas utilizando os ingredientes que você tem na sua geladeira!</p>
         <article>
@@ -23,6 +29,11 @@
                 <input type="submit" value="Consultar Receita">
             </form>
         </article>
+        @if(!empty($receita))
+        <code>
+            {!! preg_replace("/\r\n|\n/", '<br>', $receita) !!}
+        </code>
+        @endif
     </main>
     <footer>
         Laravel - GPT (Trikx)
