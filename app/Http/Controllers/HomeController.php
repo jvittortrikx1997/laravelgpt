@@ -16,6 +16,10 @@ class HomeController extends Controller
         return view('receita');
     }
 
+    public function movie(Request $request): View{
+        return view('movie');
+    }
+
     public function copy(): View{
         return view('copy');
     }
@@ -47,6 +51,36 @@ class HomeController extends Controller
             $data = json_decode($response->getBody(), true);
             $dataView['receita'] = $data['choices'][0]['text'];
             return view('receita', $dataView);
+        }else{
+            $array['error'] = 'Um erro ocorreu durante a requisção';
+            return $array;
+        }
+
+    }
+
+    public function movieSearch(Request $request): View{
+        $array = ['error' => ''];
+        $client = new Client([
+            'base_uri' => 'https://api.openai.com/v1/completions',
+            'headers' => [
+                'Content-type' => 'application/json',
+                'Authorization' => 'Bearer '.env('GPT_KEY')
+            ]
+        ]);
+
+        $response = $client->post('completions', [
+            'json' => [
+                'model' => 'text-davinci-003',
+                'prompt' => 'Qual o nome do filme que tem as seguintes características: '.$request->dados_movie,
+                'temperature' => 0.5,
+                'max_tokens' => 500
+            ]
+        ]);
+
+        if($response->getStatusCode() == 200){
+            $data = json_decode($response->getBody(), true);
+            $dataView['movie'] = $data['choices'][0]['text'];
+            return view('movie', $dataView);
         }else{
             $array['error'] = 'Um erro ocorreu durante a requisção';
             return $array;

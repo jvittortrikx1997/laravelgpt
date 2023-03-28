@@ -19,20 +19,19 @@
         </nav>
         </nav>
     </header>
-    <main id="receita">
-        <h2>Gerador de Receitas</h2>
-        <p>Crie receitas utilizando os ingredientes que você tem na sua geladeira!</p>
+    <main>
+        <h2>Encontre o Filme</h2>
+        <p>Digite suas lembranças a respeito do filme!</p>
         <article>
-            <label>Digite, seprado por virgula os ingredientes que você tem na sua geladeira.</label>
-            <form method="POST" action="{{route('ingredientes')}}">
+            <form id="movieForm" method="POST" action="{{route('movieSearch')}}">
                 @csrf
-                <input type="text" name='ingredientes'>
-                <input type="submit" value="Consultar Receita">
+                <input type="text" name='dados_movie'>
+                <input type="submit" value="Pesquisar Filme">
             </form>
         </article>
-        @if(!empty($receita))
+        @if(!empty($movie))
         <code>
-            {!! preg_replace("/\r\n|\n/", '<br>', $receita) !!}
+            {!! preg_replace("/\r\n|\n/", '<br>', $movie) !!}
         </code>
         @endif
     </main>

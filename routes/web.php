@@ -19,3 +19,5 @@ Route::get('/ingredientes', [HomeController::class, 'receita']);
 Route::post('/ingredientes', [HomeController::class, 'ingredientes'])->name('ingredientes');
 Route::get('/copy', [HomeController::class, 'copy']);
 Route::post('/copy', [HomeController::class, 'copySearch'])->name('copySearch');
+Route::get('/movie', [HomeController::class, 'movie']);
+Route::post('/movie', [HomeController::class, 'movieSearch'])->name('movieSearch');

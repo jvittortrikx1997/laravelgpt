@@ -13,8 +13,9 @@
         <h1>Laravel - GPT 🤖</h1>
         <nav>
             <a href="/">Home</a>
-            <a href="/ingredientes">Gerador de Receitas</a>
-            <a href="/copy">Gerador de Copy</a>
+            <a href="/ingredientes">Gerador de Receitas 🍲</a>
+            <a href="/copy">Gerador de Copy ©️</a>
+            <a href="/movie">Encontrar Filme 🎬</a>
         </nav>
         </nav>
     </header>
